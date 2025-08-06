@@ -1,0 +1,58 @@
+{
+  "name": "inzalo-yelanga-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Inzalo Yelanga - African Royal Calendar App",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "tsc",
+    "test": "jest",
+    "deploy": "firebase deploy"
+  },
+  "keywords": [
+    "african-calendar",
+    "decolonial",
+    "cultural-education",
+    "community",
+    "firebase",
+    "nodejs"
+  ],
+  "author": "Inzalo Yelanga Development Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "firebase-admin": "^11.11.1",
+    "firebase-functions": "^4.5.0",
+    "multer": "^1.4.5-lts.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "joi": "^17.11.0",
+    "moment": "^2.29.4",
+    "node-cron": "^3.0.3",
+    "nodemailer": "^6.9.7",
+    "sharp": "^0.32.6",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.10",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "@types/multer": "^1.4.11",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/uuid": "^9.0.7",
+    "typescript": "^5.2.2",
+    "nodemon": "^3.0.1",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "ts-jest": "^29.1.1",
+    "firebase-tools": "^12.8.1"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
