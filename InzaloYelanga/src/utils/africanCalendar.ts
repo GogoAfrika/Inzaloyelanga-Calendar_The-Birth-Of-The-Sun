@@ -1,4 +1,4 @@
-// African Royal Calendar Implementation for Backend
+// African Royal Calendar Implementation
 // Based on the 13-month system with 28 days each (364 days total)
 // The 365th day (and 366th in leap years) is considered a "Year Day"
 

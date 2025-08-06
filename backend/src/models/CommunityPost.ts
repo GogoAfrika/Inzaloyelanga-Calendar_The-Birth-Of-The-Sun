@@ -1,144 +1,103 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
 export interface ICommunityPost extends Document {
-  author: mongoose.Types.ObjectId;
+  userId: mongoose.Types.ObjectId;
+  type: 'celebration' | 'event' | 'article' | 'video';
   title: string;
   content: string;
-  images: string[];
-  type: 'celebration' | 'event' | 'article' | 'discussion' | 'cultural_practice';
-  eventReference?: mongoose.Types.ObjectId;
+  imageUrl?: string;
+  eventDate?: Date;
+  eventLocation?: string;
   tags: string[];
-  likes: mongoose.Types.ObjectId[];
-  comments: {
-    author: mongoose.Types.ObjectId;
-    content: string;
-    createdAt: Date;
-    isModerated: boolean;
-  }[];
-  isModerated: boolean;
-  moderationStatus: 'pending' | 'approved' | 'rejected';
-  moderationNotes?: string;
-  moderatedBy?: mongoose.Types.ObjectId;
-  visibility: 'public' | 'members' | 'private';
-  reportCount: number;
-  isReported: boolean;
+  likes: number;
+  comments: number;
+  likedBy: mongoose.Types.ObjectId[];
+  isPublic: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const communityPostSchema = new Schema<ICommunityPost>({
-  author: {
+const CommunityPostSchema = new Schema<ICommunityPost>({
+  userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
-    required: [true, 'Post author is required']
+    required: true
+  },
+  type: {
+    type: String,
+    enum: ['celebration', 'event', 'article', 'video'],
+    required: true
   },
   title: {
     type: String,
-    required: [true, 'Post title is required'],
+    required: true,
     trim: true,
-    maxlength: [200, 'Title cannot exceed 200 characters']
+    maxlength: 200
   },
   content: {
     type: String,
-    required: [true, 'Post content is required'],
+    required: true,
     trim: true,
-    maxlength: [5000, 'Content cannot exceed 5000 characters']
+    maxlength: 2000
   },
-  images: [{
+  imageUrl: {
     type: String,
     trim: true
-  }],
-  type: {
-    type: String,
-    enum: ['celebration', 'event', 'article', 'discussion', 'cultural_practice'],
-    required: [true, 'Post type is required']
   },
-  eventReference: {
-    type: Schema.Types.ObjectId,
-    ref: 'CalendarEvent'
+  eventDate: {
+    type: Date
+  },
+  eventLocation: {
+    type: String,
+    trim: true,
+    maxlength: 200
   },
   tags: [{
     type: String,
     trim: true,
-    lowercase: true,
-    maxlength: [50, 'Each tag cannot exceed 50 characters']
+    maxlength: 50
   }],
-  likes: [{
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  }],
-  comments: [{
-    author: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
-    },
-    content: {
-      type: String,
-      required: true,
-      trim: true,
-      maxlength: [1000, 'Comment cannot exceed 1000 characters']
-    },
-    createdAt: {
-      type: Date,
-      default: Date.now
-    },
-    isModerated: {
-      type: Boolean,
-      default: false
-    }
-  }],
-  isModerated: {
-    type: Boolean,
-    default: false
-  },
-  moderationStatus: {
-    type: String,
-    enum: ['pending', 'approved', 'rejected'],
-    default: 'pending'
-  },
-  moderationNotes: {
-    type: String,
-    trim: true,
-    maxlength: [500, 'Moderation notes cannot exceed 500 characters']
-  },
-  moderatedBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'User'
-  },
-  visibility: {
-    type: String,
-    enum: ['public', 'members', 'private'],
-    default: 'public'
-  },
-  reportCount: {
+  likes: {
     type: Number,
     default: 0,
     min: 0
   },
-  isReported: {
+  comments: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  likedBy: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
+  isPublic: {
     type: Boolean,
-    default: false
+    default: true
   }
 }, {
   timestamps: true
 });
 
-// Indexes for efficient queries
-communityPostSchema.index({ author: 1, createdAt: -1 });
-communityPostSchema.index({ type: 1, moderationStatus: 1 });
-communityPostSchema.index({ tags: 1 });
-communityPostSchema.index({ createdAt: -1 });
-communityPostSchema.index({ moderationStatus: 1, isReported: 1 });
+// Indexes for better query performance
+CommunityPostSchema.index({ userId: 1, createdAt: -1 });
+CommunityPostSchema.index({ type: 1, createdAt: -1 });
+CommunityPostSchema.index({ tags: 1 });
+CommunityPostSchema.index({ isPublic: 1, createdAt: -1 });
 
-// Virtual for like count
-communityPostSchema.virtual('likeCount').get(function() {
-  return this.likes.length;
+// Virtual for formatted date
+CommunityPostSchema.virtual('formattedDate').get(function() {
+  return this.createdAt.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
 });
 
-// Virtual for comment count
-communityPostSchema.virtual('commentCount').get(function() {
-  return this.comments.length;
-});
+// Ensure virtuals are serialized
+CommunityPostSchema.set('toJSON', { virtuals: true });
+CommunityPostSchema.set('toObject', { virtuals: true });
 
-export default mongoose.model<ICommunityPost>('CommunityPost', communityPostSchema);
+export default mongoose.model<ICommunityPost>('CommunityPost', CommunityPostSchema);

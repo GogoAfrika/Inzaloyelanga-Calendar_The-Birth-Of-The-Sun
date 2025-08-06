@@ -13,6 +13,8 @@ import connectDB from './config/database';
 
 // Import routes
 import authRoutes from './routes/auth';
+import calendarRoutes from './routes/calendar';
+import communityRoutes from './routes/community';
 
 // Import middleware
 import { protect } from './middleware/auth';
@@ -66,6 +68,8 @@ app.get('/health', (req, res) => {
 
 // API routes
 app.use('/api/auth', authRoutes);
+app.use('/api/calendar', calendarRoutes);
+app.use('/api/community', communityRoutes);
 
 // African Calendar API endpoints
 app.get('/api/calendar/today', (req, res) => {
