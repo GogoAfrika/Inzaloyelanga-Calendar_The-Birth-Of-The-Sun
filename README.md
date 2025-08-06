@@ -15,23 +15,28 @@ To serve as a decolonial educational tool, empowering users to reconnect with tr
 - **Lunar Calendar**: Track moon phases and their cultural significance
 - **Seasonal Awareness**: Dynamic interface reflecting the sun's journey
 - **Cultural Events**: Key dates like Royalty Day (December 23rd)
+- **Interactive Circular Calendar**: Beautiful visual representation of the 13-month cycle
+- **Event Management**: Create and manage personal events for each day
 
 ### 📚 Educational Hub
 - **Daily Wisdom**: "Decolonization of the Day" content
 - **Cultural Insights**: Traditional African calendar systems
 - **Historical Context**: Significance of important dates
 - **Diverse Systems**: Zulu lunisolar calendar and other traditional systems
+- **Month Details**: Comprehensive information about each month's meaning and activities
 
 ### 👥 Community Platform
-- **Celebration Feed**: Share traditional event celebrations
-- **Event Planning**: Create and share community gatherings
+- **Celebration Feed**: Share traditional event celebrations with photos and stories
+- **Event Planning**: Create and share private or public events for community gatherings
 - **Cultural Library**: Articles, videos, and traditional practices
 - **Moderated Environment**: Safe space for cultural sharing
+- **Social Features**: Like, comment, and share community posts
 
 ### 🔐 Security & Privacy
 - **Secure Authentication**: Email verification and strong passwords
 - **User Control**: Optional donations and advertisements
 - **Privacy Settings**: Complete control over personal information
+- **Preference Management**: Customizable notifications and settings
 
 ## 🏗️ Architecture
 
@@ -41,6 +46,7 @@ To serve as a decolonial educational tool, empowering users to reconnect with tr
 - **UI Components**: React Native Paper with African-inspired theme
 - **State Management**: React Context API
 - **Storage**: AsyncStorage for offline data
+- **Graphics**: React Native SVG for circular calendar visualization
 
 ### Backend (API Server)
 - **Runtime**: Node.js with Express.js
@@ -75,7 +81,7 @@ To serve as a decolonial educational tool, empowering users to reconnect with tr
 ### Prerequisites
 - Node.js (v16 or higher)
 - MongoDB (local or cloud)
-- Expo CLI
+- Expo CLI (`npm install -g @expo/cli`)
 - Git
 
 ### Backend Setup
@@ -96,6 +102,7 @@ npm start
 ```
 
 ### Environment Variables
+Create a `.env` file in the backend directory:
 ```env
 # Database
 MONGODB_URI=mongodb://localhost:27017/inzalo_yelanga
@@ -120,17 +127,27 @@ FRONTEND_URL=http://localhost:19006
 
 ### Screen Flow
 1. **Welcome Screen**: App introduction and mission
-2. **Authentication**: Register/Login (coming soon)
+2. **Authentication**: Register/Login with email verification
 3. **Home Screen**: Today's African date, lunar phase, daily wisdom
-4. **Calendar Screen**: Full calendar exploration (coming soon)
-5. **Community Screen**: Social features (coming soon)
-6. **Profile Screen**: User settings and preferences
+4. **Calendar Screen**: Interactive circular calendar with month details and event management
+5. **Community Screen**: Social features with celebration feed, events, and cultural library
+6. **Profile Screen**: User settings, preferences, and support options
 
 ### African Calendar System
-- **12 Months**: Ukuphila, Ukuhluma, Ukuvuna, Ubukumkani, Ukuthula, Ukuphendula, Ukubuyisa, Ukugcina, Ukuhlanganisa, Ukuphakama, Ukuqonda, Ukulungisa
-- **Seasons**: Spring, Summer, Autumn, Winter with cultural significance
-- **Lunar Integration**: Moon phases with traditional meanings
-- **Cultural Events**: Integrated traditional celebrations
+The app implements a 13-month African Royal Calendar:
+- **Asar** (Month of Genesis) - African New Year on September 23rd
+- **Geb** (Month of Growth) - Late Spring/Early Summer
+- **Het-Hor** (Month of Fruits) - Early Summer
+- **Ra** (Month of the Sun) - Mid-Summer, Royalty Day on December 23rd
+- **Sobek** (Month of Waters) - Late Summer
+- **Shu** (Month of Winds) - Autumn transition
+- **Isis** (Month of Ripening) - Mid-Autumn
+- **Neb-Het** (Month of Lamentation) - Late Autumn/Early Winter, Lamentation Day on March 21st
+- **Set** (Month of Darkness) - Mid-Winter
+- **Djehuti** (Month of Rejuvenation) - Late Winter
+- **Horus** (Month of Rebirth) - Early Spring, Rebirth of the Sun on June 21st
+- **Neith** (Month of Preparation) - Mid-Spring
+- **Sokhemet** (Month of Breath) - Transition period
 
 ## 🛠️ Development Status
 
@@ -139,24 +156,51 @@ FRONTEND_URL=http://localhost:19006
 - [x] Backend authentication system
 - [x] African calendar calculation system
 - [x] Mobile app navigation and theming
-- [x] Home screen with calendar integration
+- [x] Interactive circular calendar interface
+- [x] Month details and educational content
+- [x] Event creation and management
+- [x] Community features (celebration feed, events, library)
+- [x] User profile and preferences
+- [x] Optional donations and ad controls
 - [x] African-inspired UI design
 - [x] Database models and API endpoints
 
 ### 🚧 In Progress
 - [ ] Full authentication UI implementation
-- [ ] Complete calendar screen
-- [ ] Community features
-- [ ] Admin panel
 - [ ] Email verification system
+- [ ] Push notifications for cultural events
+- [ ] Admin panel for content management
 
 ### 📋 Planned Features
-- [ ] Push notifications for cultural events
 - [ ] Offline calendar access
 - [ ] Multiple language support
 - [ ] Cultural audio content
 - [ ] AR/VR calendar visualization
 - [ ] Integration with device calendar
+- [ ] Advanced community moderation tools
+
+## 🎯 Key Features Implemented
+
+### Circular Calendar Interface
+- Beautiful 13-month circular visualization
+- Interactive month selection with detailed information
+- Sacred day highlighting and descriptions
+- Event creation and management for each day
+- Seasonal color themes that change dynamically
+
+### Community Platform
+- Celebration feed with photo sharing
+- Event creation and management
+- Cultural library with articles and resources
+- Social interactions (likes, comments, sharing)
+- Tagged content for easy discovery
+
+### User Experience
+- Optional donations to support the mission
+- Opt-in advertisements with clear explanations
+- Comprehensive preference settings
+- Cultural reminders and notifications
+- Privacy controls and data management
 
 ## 🤝 Contributing
 
