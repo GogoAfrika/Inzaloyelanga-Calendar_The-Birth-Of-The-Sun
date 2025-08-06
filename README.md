@@ -1,202 +1,208 @@
-# Inzalo Yelanga - The Birth of the Sun 🌅
+# Inzalo Yelanga - The Birth of the Sun
 
-**African Traditional Calendar App**
+A comprehensive cross-platform mobile application that serves as a decolonial educational tool, providing a functional African Royal Calendar and community platform for shared learning. The app empowers users to reconnect with traditional African timekeeping and cultural practices, promoting a worldview rooted in nature and heritage rather than colonial systems.
 
-A decolonial educational mobile application that serves as a digital sanctuary for African time, culture, and community. Built with React Native (Expo) and Node.js.
+## 🌟 Features
 
-## 🌍 Mission
+### 📅 African Royal Calendar System
+- **13-Month Calendar**: Based on the traditional African Royal Calendar with 28 days per month (364 days total)
+- **Sacred Days**: Recognition of important cultural dates like African New Year (September 23rd) and Royalty Day (December 23rd)
+- **Seasonal Awareness**: Dynamic interface that changes with seasons and reflects the sun's journey
+- **Lunar Integration**: Traditional lunar calendar tracking with phase information
+- **Interactive Calendar**: Circular calendar interface with month segments and day grids
 
-To serve as a decolonial educational tool, empowering users to reconnect with traditional African timekeeping and cultural practices, promoting a worldview rooted in nature and heritage rather than colonial systems.
-
-## ✨ Features
-
-### 🗓️ Calendar System
-- **African Royal Calendar**: Solar calendar with African New Year on September 23rd
-- **Lunar Calendar**: Track moon phases and their cultural significance
-- **Seasonal Awareness**: Dynamic interface reflecting the sun's journey
-- **Cultural Events**: Key dates like Royalty Day (December 23rd)
-
-### 📚 Educational Hub
-- **Daily Wisdom**: "Decolonization of the Day" content
-- **Cultural Insights**: Traditional African calendar systems
-- **Historical Context**: Significance of important dates
-- **Diverse Systems**: Zulu lunisolar calendar and other traditional systems
+### 🎓 Educational Hub
+- **Cultural Knowledge**: Detailed information about each month's significance, activities, and cultural practices
+- **Sacred Day Details**: Comprehensive explanations of important dates and their cultural significance
+- **Decolonial Wisdom**: Daily insights focused on decolonization and cultural reconnection
+- **Traditional Practices**: Information about rites of passage, ceremonies, and cultural events
 
 ### 👥 Community Platform
-- **Celebration Feed**: Share traditional event celebrations
-- **Event Planning**: Create and share community gatherings
-- **Cultural Library**: Articles, videos, and traditional practices
-- **Moderated Environment**: Safe space for cultural sharing
+- **Celebration Feed**: Moderated feed where users share photos and stories of traditional celebrations
+- **Event Planning**: Create and share private or public events for community gatherings
+- **Cultural Library**: Share and discover articles, videos, and information about traditional practices
+- **Community Moderation**: Tools for maintaining respectful and culturally appropriate content
 
-### 🔐 Security & Privacy
-- **Secure Authentication**: Email verification and strong passwords
-- **User Control**: Optional donations and advertisements
-- **Privacy Settings**: Complete control over personal information
+### 🔐 Secure User System
+- **Email Registration**: Secure account creation with email verification
+- **Strong Authentication**: Password requirements and secure login system
+- **User Profiles**: Personalized experience with user preferences and settings
+
+### 🎨 Cultural Design
+- **African-Inspired UI**: Rich, vibrant colors and geometric patterns inspired by Kuba textiles and Ndebele art
+- **Seasonal Themes**: Dynamic color schemes that change with the seasons
+- **Traditional Aesthetics**: Organic, intuitive interface with natural material textures
+
+### 💰 Sustainability Features
+- **Optional Donations**: Discreet donation system for users who wish to support the app
+- **Opt-In Advertising**: User-controlled ad system that respects user choice
+- **Community-Driven**: Content created and moderated by the community
 
 ## 🏗️ Architecture
 
-### Frontend (Mobile App)
-- **Framework**: React Native with Expo
-- **Navigation**: React Navigation 6
-- **UI Components**: React Native Paper with African-inspired theme
-- **State Management**: React Context API
-- **Storage**: AsyncStorage for offline data
+### Frontend (React Native/Expo)
+- **Cross-Platform**: Works on both iOS and Android
+- **Modern UI**: Built with React Native Paper and custom African-themed components
+- **Offline Support**: Local storage for calendar events and user preferences
+- **Real-time Updates**: Dynamic calendar that updates based on current date and season
 
-### Backend (API Server)
-- **Runtime**: Node.js with Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT with bcrypt password hashing
-- **Email**: Nodemailer for verification and notifications
-- **Security**: Helmet, CORS, rate limiting
-
-### Key Technologies
-- **TypeScript**: Full type safety across the stack
-- **Linear Gradients**: Beautiful African-inspired color schemes
-- **Cultural Design**: Kuba textiles and Ndebele art inspiration
-- **Responsive Design**: Optimized for all mobile devices
-
-## 🎨 Design Philosophy
-
-### African-Inspired Theme
-- **Colors**: Earth tones, sunset hues, and natural materials
-- **Primary**: Saddle Brown (#8B4513) - earth and stability
-- **Secondary**: Chocolate (#D2691E) - warm sunset
-- **Accent**: Gold (#FFD700) - prosperity and sun
-- **Seasonal**: Dynamic colors based on African calendar seasons
-
-### Cultural Elements
-- **Patterns**: Inspired by Kuba textiles and Ndebele geometric art
-- **Typography**: Clean, readable fonts with cultural sensitivity
-- **Icons**: Culturally appropriate symbols and representations
-- **Language**: Zulu terms in navigation (Ikhaya, Ikhalenda, etc.)
+### Backend (Node.js/Express)
+- **RESTful API**: Comprehensive API for all app features
+- **MongoDB Database**: Scalable database for user data, posts, events, and articles
+- **Authentication**: JWT-based secure authentication system
+- **File Upload**: Support for image uploads in community posts
+- **Rate Limiting**: Protection against abuse and spam
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v16 or higher)
-- MongoDB (local or cloud)
+- npm or yarn
 - Expo CLI
-- Git
+- MongoDB (local or cloud instance)
+- iOS Simulator (for iOS development)
+- Android Studio (for Android development)
 
-### Backend Setup
-```bash
-cd backend
-npm install
-cp .env.example .env
-# Configure your environment variables
-npm run dev
-```
+### Installation
 
-### Mobile App Setup
-```bash
-cd InzaloYelanga
-npm install
-npm start
-# Use Expo Go app to scan QR code
-```
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd InzaloYelanga
+   ```
 
-### Environment Variables
-```env
-# Database
-MONGODB_URI=mongodb://localhost:27017/inzalo_yelanga
+2. **Install Frontend Dependencies**
+   ```bash
+   cd InzaloYelanga
+   npm install
+   ```
 
-# JWT
-JWT_SECRET=your_super_secret_jwt_key_here
-JWT_EXPIRE=7d
+3. **Install Backend Dependencies**
+   ```bash
+   cd backend
+   npm install
+   ```
 
-# Email Configuration
-EMAIL_HOST=smtp.gmail.com
-EMAIL_PORT=587
-EMAIL_USER=your_email@gmail.com
-EMAIL_PASS=your_app_password
+4. **Environment Setup**
 
-# Server
-PORT=5000
-NODE_ENV=development
-FRONTEND_URL=http://localhost:19006
-```
+   Create a `.env` file in the backend directory:
+   ```env
+   NODE_ENV=development
+   PORT=5000
+   MONGODB_URI=mongodb://localhost:27017/inzalo-yelanga
+   JWT_SECRET=your-super-secret-jwt-key
+   FRONTEND_URL=http://localhost:19006
+   ```
+
+5. **Database Setup**
+   ```bash
+   # Start MongoDB (if using local instance)
+   mongod
+   
+   # Or use MongoDB Atlas for cloud hosting
+   ```
+
+6. **Start the Backend**
+   ```bash
+   cd backend
+   npm run dev
+   ```
+
+7. **Start the Frontend**
+   ```bash
+   cd InzaloYelanga
+   npm start
+   ```
+
+8. **Run on Device/Simulator**
+   - Press `i` for iOS Simulator
+   - Press `a` for Android Emulator
+   - Scan QR code with Expo Go app on your phone
 
 ## 📱 App Structure
 
-### Screen Flow
-1. **Welcome Screen**: App introduction and mission
-2. **Authentication**: Register/Login (coming soon)
-3. **Home Screen**: Today's African date, lunar phase, daily wisdom
-4. **Calendar Screen**: Full calendar exploration (coming soon)
-5. **Community Screen**: Social features (coming soon)
-6. **Profile Screen**: User settings and preferences
+### Screens
+- **Home Screen**: Daily overview with current African date, wisdom, and quick actions
+- **Calendar Screen**: Interactive circular calendar with month details and event management
+- **Community Screen**: Celebration feed, event planning, and cultural library
+- **Profile Screen**: User settings, preferences, and account management
 
-### African Calendar System
-- **12 Months**: Ukuphila, Ukuhluma, Ukuvuna, Ubukumkani, Ukuthula, Ukuphendula, Ukubuyisa, Ukugcina, Ukuhlanganisa, Ukuphakama, Ukuqonda, Ukulungisa
-- **Seasons**: Spring, Summer, Autumn, Winter with cultural significance
-- **Lunar Integration**: Moon phases with traditional meanings
-- **Cultural Events**: Integrated traditional celebrations
+### Key Components
+- **Circular Calendar**: Interactive 13-month calendar with radial design
+- **Month Details**: Comprehensive information about each month's cultural significance
+- **Event Management**: Create, edit, and manage personal and community events
+- **Community Feed**: Social platform for sharing cultural celebrations and experiences
 
-## 🛠️ Development Status
+## 🔧 API Endpoints
 
-### ✅ Completed
-- [x] Project setup and architecture
-- [x] Backend authentication system
-- [x] African calendar calculation system
-- [x] Mobile app navigation and theming
-- [x] Home screen with calendar integration
-- [x] African-inspired UI design
-- [x] Database models and API endpoints
+### Authentication
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/login` - User login
+- `POST /api/auth/logout` - User logout
+- `GET /api/auth/profile` - Get user profile
 
-### 🚧 In Progress
-- [ ] Full authentication UI implementation
-- [ ] Complete calendar screen
-- [ ] Community features
-- [ ] Admin panel
-- [ ] Email verification system
+### Calendar
+- `GET /api/calendar/today` - Get today's African calendar information
+- `GET /api/calendar/date/:date` - Get calendar info for specific date
+- `GET /api/calendar/months` - Get all months data
+- `GET /api/calendar/months/:monthIndex` - Get specific month data
+- `GET /api/calendar/sacred-day/:date` - Check if date is sacred day
 
-### 📋 Planned Features
-- [ ] Push notifications for cultural events
-- [ ] Offline calendar access
-- [ ] Multiple language support
-- [ ] Cultural audio content
-- [ ] AR/VR calendar visualization
-- [ ] Integration with device calendar
+### Community
+- `GET /api/community/posts` - Get community posts
+- `POST /api/community/posts` - Create new post
+- `GET /api/community/events` - Get cultural events
+- `POST /api/community/events` - Create new event
+- `GET /api/community/articles` - Get cultural articles
+- `POST /api/community/articles` - Create new article
+
+## 🎨 Design Philosophy
+
+The app's design is deeply rooted in African cultural aesthetics:
+
+- **Colors**: Inspired by African earth tones, sunset colors, and traditional textiles
+- **Patterns**: Geometric designs from Kuba textiles and Ndebele art
+- **Typography**: Clean, readable fonts that respect cultural heritage
+- **Layout**: Organic, intuitive navigation that feels natural and welcoming
+
+## 🌍 Cultural Significance
+
+Inzalo Yelanga represents more than just a calendar app - it's a digital sanctuary for African time, culture, and decolonial education. The app:
+
+- **Reconnects** users with indigenous timekeeping systems
+- **Educates** about traditional African cultural practices
+- **Builds** community around shared cultural experiences
+- **Empowers** through knowledge and cultural pride
+- **Decolonizes** by centering African perspectives and systems
 
 ## 🤝 Contributing
 
-We welcome contributions that align with our mission of decolonial education and cultural preservation.
+We welcome contributions from the community! Please read our contributing guidelines and ensure all contributions respect the cultural significance and decolonial mission of the project.
 
-### Guidelines
-1. Respect African cultural heritage and traditions
-2. Maintain high code quality and documentation
-3. Test thoroughly on multiple devices
-4. Follow the established design patterns
-5. Consider accessibility in all implementations
-
-### Development Process
-1. Fork the repository
-2. Create a feature branch
-3. Implement changes with tests
-4. Submit a pull request with detailed description
-5. Participate in code review process
+### Development Guidelines
+- Follow African cultural sensitivity in all content and design decisions
+- Ensure accessibility for users with different abilities
+- Maintain the app's educational and community-building mission
+- Test thoroughly on both iOS and Android platforms
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the ISC License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- African traditional calendar systems and their keepers
-- Ubuntu philosophy: "I am because we are"
-- Gekmovement.org for calendar system inspiration
-- African textile artists (Kuba, Ndebele) for design inspiration
-- The global African diaspora community
+- The African Royal Calendar system and its cultural significance
+- Traditional African communities and knowledge keepers
+- The decolonial education movement
+- All contributors and community members
 
-## 📞 Contact
+## 📞 Support
 
-For questions, suggestions, or collaboration opportunities:
-- Email: contact@inzaloyelanga.org
-- Website: [Coming Soon]
-- Community: [Join our cultural discussions]
+For support, questions, or feedback:
+- Create an issue in the GitHub repository
+- Contact the development team
+- Join our community discussions
 
 ---
 
-**"The best time to plant a tree was 20 years ago. The second best time is now."** - African Proverb
-
-*Asante sana (Thank you) for joining our journey to reconnect with African time and culture.*
+**Inzalo Yelanga** - Empowering African cultural reconnection through technology and community.
