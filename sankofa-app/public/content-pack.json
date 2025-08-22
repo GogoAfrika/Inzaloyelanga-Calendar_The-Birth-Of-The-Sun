@@ -1,0 +1,18 @@
+{
+	"languages": [
+		{ "code": "sw", "name": "Swahili" },
+		{ "code": "ha", "name": "Hausa" }
+	],
+	"proverbs": {
+		"sw": [
+			{ "text": "Asiyefunzwa na mamae hufunzwa na ulimwengu.", "gloss": "One not taught by their mother is taught by the world." }
+		],
+		"ha": [
+			{ "text": "Komai nisan jifa ƙasa zai fāɗo.", "gloss": "No matter how far you throw, it falls to earth." }
+		]
+	},
+	"primers": [
+		{ "id": "ngugi", "title": "Ngũgĩ wa Thiong’o — Decolonising the Mind", "minutes": 10 },
+		{ "id": "cabral", "title": "Amílcar Cabral — Tell No Lies, Claim No Easy Victories", "minutes": 8 }
+	]
+}
